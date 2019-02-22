@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.5in]{geometry}
+\setlength{\parindent}{0pt}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage[edges]{forest}
+
+\setlength{\parskip}{0.14in}
+
+\newcommand{\disp}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\red}[1]{\color{red}#1\color{black}}
+\newcommand{\nodecircle}{circle,fill,outer sep=0,inner sep=1pt}
+
+\begin{document}
+
+
+\begin{center}
+	\scriptsize
+	\begin{forest}
+		for tree={s sep=0.05cm,l sep=1.25cm}
+		[Nature
+		[1, edge label = {node[midway, above left]{C}}
+		[2, edge label = {node[midway, above left]{C}}
+		[3, edge label = {node[midway, above left]{C}}  
+		[{\disp{1\\1}}, edge label = {node[midway, above left]{C}}]
+		[{\disp{1\\1}}, edge label = {node[midway, above right]{C}}]
+		]
+		[3, edge label = {node[midway, above right]{C}} 
+		[{\disp{1\\1}}, edge label = {node[midway, above left]{C}}]
+		[{\disp{1\\1}}, edge label = {node[midway, above right]{C}}] 
+		] 
+		]
+		[2, edge label = {node[midway, above right]{C}} 
+		[3, edge label = {node[midway, above left]{C}}  
+		[{\disp{1\\1}}, edge label = {node[midway, above left]{C}}]
+		[{\disp{1\\1}}, edge label = {node[midway, above right]{C}}] 
+		]
+		[3, edge label = {node[midway, above right]{C}}
+		[{\disp{1\\1}}, edge label = {node[midway, above left]{C}}]
+		[{\disp{1\\1}}, edge label = {node[midway, above right]{C}}]
+		] 
+		]
+		]
+		[1, edge label = {node[midway, above right]{C}}
+		[2, edge label = {node[midway, above left]{C}}
+		[3, edge label = {node[midway, above left]{C}}  
+		[{\disp{1\\1}}, edge label = {node[midway, above left]{C}}]
+		[{\disp{1\\1}}, edge label = {node[midway, above right]{C}}] 
+		]
+		[3, edge label = {node[midway, above right]{C}} 
+		[{\disp{1\\1}}, edge label = {node[midway, above left]{C}}]
+		[{\disp{1\\1}}, edge label = {node[midway, above right]{C}}]
+		] 
+		]
+		[2, edge label = {node[midway, above right]{C}} 
+		[3, edge label = {node[midway, above left]{C}}  
+		[{\disp{1\\1}}, edge label = {node[midway, above left]{C}}]
+		[{\disp{1\\1}}, edge label = {node[midway, above right]{C}}]
+		]
+		[3, edge label = {node[midway, above right]{C}}
+		[{\disp{1\\1}}, edge label = {node[midway, above left]{C}}]
+		[{\disp{1\\1}}, edge label = {node[midway, above right]{C}}]
+		] 
+		]
+		]
+		]
+	\end{forest}
+\end{center}
+
+\begin{center}
+	\scriptsize
+	\begin{forest}
+		[,\nodecircle, alias = I, l sep=2cm, grow = east
+		[,\nodecircle, before computing xy={l=3cm,s=0cm},edge label = {node[pos=0.6,above]{rain} node[pos=0.6, below]{0.5}}, alias = R
+		[,\nodecircle, before computing xy={l=2cm,s=0cm},edge label = {node[midway,right]{N}}, alias = RN, l sep = 1.4cm
+		[{($-5,-2$)}, edge label = {node[pos=0.6,left]{U}}]
+		[{($-5,-5$)}, edge label = {node[pos=0.6,right]{N}}]
+		]
+		[,\nodecircle, before computing xy={l=-2cm,s=0cm},edge label = {node[midway,right]{U}}, alias = RU, grow' = north, l sep = 1.4cm
+		[{($-2,-2$)}, edge label = {node[pos=0.6,left]{U}}]
+		[{($-2,-5$)}, edge label = {node[pos=0.6,right]{N}}]
+		]
+		]
+		[,\nodecircle, before computing xy={l=-3cm,s=0cm},edge label = {node[pos=0.6, above]{shine} node[pos=0.6, below]{0.5}}, alias = S
+		[,\nodecircle, before computing xy={l=2cm,s=0cm},edge label = {node[midway,left]{N}}, alias = SN, l sep = 1.4cm
+		[{($1,-1$)}, edge label = {node[pos=0.6,left]{U}}]
+		[{($1,1$)}, edge label = {node[pos=0.6,right]{N}}]
+		]
+		[,\nodecircle, before computing xy={l=-2cm,s=0cm},edge label = {node[midway,left]{U}}, alias = SU, grow' = north, l sep = 1.4cm
+		[{($-1,-1$)}, edge label = {node[pos=0.6,left]{U}}]
+		[{($-1,1$)}, edge label = {node[pos=0.6,right]{N}}]
+		]
+		]
+		] 
+		\node[above] at (I){\red{Nature}}; 
+		\node[right] at (R){\red{1}}; 
+		\node[left] at (S){\red{1}}; 
+		\node[draw, dashed, rounded rectangle,fit=(SU) (RU), minimum height = 0.6cm, text height = 0.2cm]{\red{2}};
+		\node[draw, dashed, rounded rectangle,fit=(SN) (RN), minimum height = 0.6cm, text height = 0.2cm]{\red{2}};
+	\end{forest}
+	
+\end{center}
+
+	
+	
+	
+	
+	
+\end{document}
